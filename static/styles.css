@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #e0f7fa; /* Мягкий цвет фона */
+}
+
+.container {
+    text-align: center;
+    background-color: #ffffff; /* Белый фон контейнера */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 360px; /* Устанавливаем фиксированную ширину */
+    height: 430px; /* Устанавливаем фиксированную высоту */
+}
+
+h1 {
+    color: #333;
+    margin: 0 0 20px 0;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 320px; /* Фиксированная ширина */
+    height: 320px; /* Фиксированная высота */
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    cursor: pointer;
+    border: 2px solid #ccc;
+    transition: background-color 0.3s, color 0.3s, transform 0.5s ease-in-out;
+}
+
+.cell.X {
+    color: #ff6347; /* Tomato */
+    animation: pop-in 0.5s ease-in-out;
+}
+
+.cell.O {
+    color: #4682b4; /* SteelBlue */
+    animation: pop-in 0.5s ease-in-out;
+}
+
+.cell:hover {
+    background-color: #f1f1f1;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4682b4; /* SteelBlue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 20px; /* Отступ сверху */
+}
+
+button:hover {
+    background-color: #ff6347; /* Tomato */
+    transform: scale(1.1);
+}
+
+@keyframes pop-in {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    opacity: 0.7;
+    animation: confetti-fall 3s linear;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-1000px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+    }
+}
